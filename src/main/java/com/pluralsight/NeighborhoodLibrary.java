@@ -1,12 +1,14 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
 public class NeighborhoodLibrary {
     private static Book[] books = new Book[20]; // An array of books that goes up to 20
 
     private static int numBooks = 20; // Amount of books in array
 
     public static void main(String[] args) {
-
+        // Making Books, giving id, isbn, title
         books[0] = new Book(101, "B-123-11", "The Lord of The Rings");
         books[1] = new Book(102, "B-123-22", "1984");
         books[2] = new Book(103, "B-123-33", "Harry Potter and the Goblet of Fire");
@@ -27,6 +29,32 @@ public class NeighborhoodLibrary {
         books[17] = new Book(118, "B-124-99", "Life of Pi");
         books[18] = new Book(119, "B-125-11", "The Da Vinci Code");
         books[19] = new Book(120, "B-125-22", "The Maze Runner");
+
+        Scanner scanner = new Scanner(System.in);
+
+        boolean isDone = false;
+
+        while (!isDone) {
+            // Asking User for input on what they want to do
+            System.out.println("Welcome to the Neighborhood Library: ");
+            System.out.println(" 1 - Show Available Books");
+            System.out.println(" 2 - Show Checked Out Books");
+            System.out.println(" 3 - Exit");
+            System.out.println("Enter your command:");
+
+            int input = scanner.nextInt();
+
+            switch (input) {
+                case 1:
+
+            }
+
+
+
+
+        }
+        public static void
+
 
 
 

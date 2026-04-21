@@ -103,6 +103,7 @@ public class NeighborhoodLibrary {
 
 
             }
+            // method for checking out books
     public static void checkedOutBooks(Scanner scanner) {
         System.out.println("Checked out Books: ");
 
@@ -115,6 +116,34 @@ public class NeighborhoodLibrary {
         System.out.print("C - Check In a book | X - Go back: ");
         String inputAnswer = scanner.nextLine();
 
+        if (inputAnswer.equalsIgnoreCase("C")) {
+            checkInBook(scanner);
+        }
+
+        }
+        // method for checking in books
+    public static void checkInBook(Scanner scanner) {
+        System.out.print("Enter Book Id to check in: ");
+        int bookId = Integer.parseInt(scanner.nextLine());
+
+        boolean idFound = false;
+
+        for (int i = 0; i < numBooks; i++) {
+            if (books[i].getId() == bookId && books[i].isCheckedOut()) {
+                books[i].checkIn();
+                System.out.println(books[i].getTitle() + "is checked in.");
+                idFound = true;
+                break;
+            }
+
+        }
+
+        // gives user message if book input is invalid or book is checked out
+
+        if (!idFound) {
+            System.out.println("Book isn't found/Currently checked out.");
+        }
+    }
 
 
 

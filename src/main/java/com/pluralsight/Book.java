@@ -51,10 +51,20 @@ public class Book {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
-        this.isCheckedOut = isCheckedOut;
-        this.checkedOutTo = checkedOutTo;
+        this.isCheckedOut = false;
+        this.checkedOutTo = " ";
 
 
+    }
+
+    public void checkOut(String name) {
+        this.checkedOutTo = name;
+        this.isCheckedOut = true;
+    }
+
+    public void checkIn() {
+        this.checkedOutTo = " ";
+        this.isCheckedOut = false;
     }
 }
 

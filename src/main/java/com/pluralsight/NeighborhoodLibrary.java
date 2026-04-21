@@ -42,18 +42,45 @@ public class NeighborhoodLibrary {
             System.out.println(" 3 - Exit");
             System.out.println("Enter your command:");
 
-            int input = scanner.nextInt();
+            int input = scanner.nextInt(); // Stores users input
+            scanner.nextLine(); // Prevents input from glitching
 
             switch (input) {
                 case 1:
+                    availableBooks(scanner);
+                    break;
 
+            }
             }
 
 
 
 
         }
-        public static void
+        // Method for showing available books when user selects 1
+        public static void availableBooks(Scanner scanner) {
+            System.out.println("Available Books: ");
+
+            for (int i = 0; i < numBooks; i++) {
+                if (!books[i].isCheckedOut()) {
+                    System.out.println("ID: " + books[i].getId() + " | ISBN: " + books[i].getIsbn() + " | Title: " + books[i].getTitle());
+                }
+
+            }
+            System.out.println("Enter Book ID to check out book(X to exit): ");
+            String bookInput = scanner.nextLine();
+
+            if (bookInput.equalsIgnoreCase("X")) {
+                return;
+            }
+
+
+
+
+
+
+        }
+
 
 
 
@@ -61,4 +88,4 @@ public class NeighborhoodLibrary {
 
 
     }
-}
+

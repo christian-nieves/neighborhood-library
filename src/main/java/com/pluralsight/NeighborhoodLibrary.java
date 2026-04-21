@@ -49,6 +49,16 @@ public class NeighborhoodLibrary {
                 case 1:
                     availableBooks(scanner);
                     break;
+                case 2:
+                    checkedOutBooks(scanner);
+                    break;
+                case 3:
+                    System.out.println("You have exited the program. Have a great day!");
+                    isDone = true;
+                    break;
+                default:
+                    System.out.println("An error occurred!");
+                    break;
 
             }
             }
@@ -74,12 +84,37 @@ public class NeighborhoodLibrary {
                 return;
             }
 
+            int bookId = Integer.parseInt(bookInput);
+            boolean bookFound = false;
+
+            for (int i = 0; i < numBooks ; i++) {
+                if (books[i].getId() == bookId && !books[i].isCheckedOut()) {
+                    System.out.println("Enter your name: ");
+                    String name = scanner.nextLine();
+                    books[i].checkOut(name);
+                    System.out.println(books[i].getTitle() + " is checked out " + name);
+                    break;
+                }
+                if (!bookFound) {
+                    System.out.println("The book you selected is currently not available.");
+                }
+
+            }
 
 
+            }
+    public static void checkedOutBooks(Scanner scanner) {
+        System.out.println("Checked out Books: ");
 
-
-
+        for (int i = 0; i < numBooks; i++) {
+            if (books[i].isCheckedOut()) {
+                System.out.println("ID: " + books[i].getId() + " | ISBN: " + books[i].getIsbn() + " | Title: " + books[i].getTitle() + " | Checked out to: " + books[i].getCheckedOutTo());
+            }
         }
+
+        System.out.print("C - Check In a book | X - Go back: ");
+        String inputAnswer = scanner.nextLine();
+
 
 
 
